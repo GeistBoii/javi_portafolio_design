@@ -1,0 +1,108 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal en español -->
+<html lang="en">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsive, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Plan Común</title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  
+    <!-- Vincula la hoja de estilos CSS externa -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+ 
+  <!-- ===========================================
+    FRANJA SUPERIOR 
+  ===========================================-->
+  <div class="franja-texto">
+    <div class="ticker-track">
+    <!-- El texto se duplica para que la animación sea continua -->
+    <span class="text-sup"> DiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComún</span>
+    <span class="text-sup"> DiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComún</span>
+  </div><!--fin ticker-track-->
+</div><!--fin franja-texto-->
+ 
+  <!-- ===========================================
+    CUERPO 
+  =========================================== -->
+  <!--Organización de página-->
+  <div class="pagina">
+ 
+    <!-- Barra lateral roja -->
+    <aside class="rect-plan-comun">
+ 
+      <!-- Botón volver al menú -->
+      <a href="index.html", target="_self">
+        <img src="assets/undo.png" class="undo" alt="Volver">
+      </a>
+ 
+      <!-- Texto descriptivo -->
+      <p class="text-descriptivo">
+        Colección de trabajos para primer año de Diseño UDD, 
+        <br> 
+        plan común.<br><br>
+        <br>
+        • Objetos<br>
+        • Diseño Gráfico<br>
+        • Diseño de Productos
+      </p>
+ 
+    </aside>
+ 
+    <!-- Área de imágenes (clickeables → sub-sub-página) -->
+    <main class="area-imagenes-plan-comun">
+ 
+      <!-- Imagen 1  -->
+      <a href="pc-farol.html", target="_self" class="foto-con-hover">
+        <img src="assets/farol-menu.webp" class="image-placeholder-1" alt="Luz para la Nación"> 
+        <span class="foto-titulo">Luz para la Nación</span>
+      </a>
+ 
+      <!-- Imagen 2  -->
+      <a href="pc-timbres.html", target="_self" class="foto-con-hover">
+        <img src="assets/timbres-menu.webp" class="image-placeholder-2" alt="Set de Timbres"> 
+        <div class="foto-titulo">Set de Timbres</div>
+      </a>
+ 
+      <!-- Imagen 3  -->
+      <a href="pc-revista.html", target="_self" class="foto-con-hover">
+        <img src="assets/revista-menu.webp" class="image-placeholder-3" alt="Revista The Andes House">
+        <div class="foto-titulo">Revista The Andes House</div>
+      </a>
+ 
+    </main>
+ 
+  </div>
+ 
+  <!-- ===========================================
+    FRANJA INFERIOR (invertida) 
+  =========================================== -->
+  <!--Aspecto visual de texto-->
+  <div class="franja-texto-inferior">
+  <!--Movimiento de texto.-->
+  <div class="ticker-track">
+    <!-- El texto se duplica para que la animación sea continua -->
+    <span class="text-inf"> DiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComún</span>
+    <span class="text-inf"> DiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComúnDiseñoPlanComún</span>
+  </div><!--Fin ticker-track-->
+</div><!--Fin de franja-texto-inferior-->
+ 
+<!-- Vincula la hoja de JavaScript externa -->
+    <script src="js/script.js"></script>
+
+</body><!--FIN BODY-->
+</html><!--FIN PÀGINA-->

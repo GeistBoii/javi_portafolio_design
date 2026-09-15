@@ -1,0 +1,977 @@
+/*Código creado con la ayuda de Claude AI*/
+/*INICIO CÓDIGO CSS*/
+/*=======================================================================================
+
+ESTABLECER ELEMENTOS GLOBALES
+
+=======================================================================================*/
+ /*-----------------------------------------
+ Establecer tipografías
+ -----------------------------------------*/
+  /*Tipografía decorativa Pixel Cursive*/
+ @font-face {
+    font-family: 'pixelcursive';                             /* Nombre que le asigno yo */
+    src: url('../fonts/FT88-School.ttf') format('truetype'); /* Ruta al archivo */
+    font-weight: normal;                                     /* Grosor de la letra */
+    font-style: normal;                                      /* Estilo de la letra */ 
+}
+  /*Tipografía para títulos Bitcount*/
+ @font-face {
+    font-family: 'bitcount';                                                         /* Nombre que le asigno yo */
+    src: url('../fonts/BitcountGridSingle_Cursive-SemiBold.ttf') format('truetype'); /* Ruta al archivo */
+    font-weight: normal;                                                             /* Grosor de la letra */
+    font-style: normal;                                                              /* Estilo de la letra */
+}
+  /*Tipografía para cuerpos de texto Abordage*/
+ @font-face {
+    font-family: 'abordage';                                       /* Nombre que le asigno yo */
+    src: url('../fonts/Abordage-Regular.ttf') format('truetype');  /* Ruta al archivo */
+    font-weight: normal;                                           /* Grosor de la letra */
+    font-style: normal;                                            /* Estilo de la letra */
+}
+/*-----------------------------------------
+Variables globales del diseño 
+-----------------------------------------*/
+
+ /*Paleta de colores*/
+    :root { /*selector de elementos raíz del documento*/
+    --amarillo: #FCC100;        /*color amarillo*/
+    --rojo: #FC5200;            /*color rojo*/
+    --azul: #0C5EAE;            /*color azul*/
+    --bg-color: #FFFFFF;        /*color blanco*/     
+    --texto: #0f172a;           /*color negro*/
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*transición para animación de hover*/
+    }
+    /* RESET: para sacar parametros preestabecidos del sitio web */
+    *, *::before, *::after {  /*elementos que el programa agrega antes y despùes de cada elemento*/
+      box-sizing: border-box;   /*incluye el padding y border dentro del ancho/alto declarado*/
+      margin: 0;                /*margen reset*/
+      padding: 0;               /*padding reset*/
+    }
+    
+    /*dentro del body, preestablecido:*/
+    body {
+      font-family: 'abordage', "Helvetica", Arial, sans-serif;  /*tipografía abordage*/
+      background: #ffffff;       /*color de fondo blanco*/
+      overflow-x: hidden;          /*corta contenido sobresaliente en x*/
+    }
+
+/*=======================================================================================
+
+MENÚ PRINCIPAL (INDEX.HTML)
+
+=======================================================================================*/
+    /*-----------------------------------------
+       FRANJAS DE TEXTO ANIMADAS (ticker)
+    -----------------------------------------*/
+    /*Movimiento de texto*/
+    @keyframes ticker{    /*define una animación con fotogramas clave*/
+      0%   { transform: translateX(-50%); } /*texto inicia desplazado a la izquierda por la mitad de su ancho*/
+      100% { transform: translateX(0); }    /*texto se deplaza a la derecha hacia su posición original*/
+    }
+    /*0% -> inicio de animación
+    100% -> final de animación*/
+    
+    /* Este es el que se mueve, contiene las dos copias de texto juntas (que estan en el html)*/
+    .ticker-track {
+      display: inline-flex;                  /* pone los dos textos pegados, sin huecos */
+      animation: ticker 70s linear infinite; /*animación continua (ticker), 20s en completar*/
+    }
+
+    /*------------FRANJA DE TEXTO SUPERIOR------------*/
+    /*Aspecto visual de "caja" de texto*/
+    .franja-texto {
+      width: 100%;                     /*ocupa todo el ancho de donde esta contenido*/
+      overflow: hidden;                /*se corta contenido que se sale de su contenedor*/
+      white-space: nowrap;             /*texto se mantiene en una sola línea, sin pasar a otra*/
+      border-top: 2px solid #000;    /*contorno superior de "caja"*/
+      border-bottom: 2px solid #000; /*contorno inferior de "caja"*/
+      padding: 4px 0;                  /*padding de 4px arriba y abajo, 0 a los lados*/
+    }
+
+    /*Aspecto visual texto dentro de "caja"*/
+    .text-sup {
+      display: inline-block;                         /*display que respeta configuración de textos y tenerlos uno al lado del otro*/
+      color: #000000;                              /*color de texto negro*/ 
+      font-family: 'pixelcursive', monospace;        /*tipografía*/
+      font-weight: 400;                              /*grosor de texto normal(400)*/
+      font-size: clamp(28px, 4vw, 40px);             /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                              /*altura de línea de texto*/
+    }
+
+    /*------------------FRANJA DE TEXTO INFERIOR (igual a la superior, rotada)---------*/
+    /*Aspecto visual de "caja" de texto*/
+    .franja-texto-inferior {
+      width: 100%;                      /*ocupa todo el ancho de donde esta contenido*/
+      overflow: hidden;                 /*se corta contenido que se sale de su contenedor*/
+      white-space: nowrap;              /*texto se mantiene en una sola línea, sin pasar a otra*/
+      border-top: 2px solid #000;     /*contorno superior de "caja"*/
+      border-bottom: 2px solid #000;  /*contorno inferior de "caja"*/
+      padding: 4px 0;                   /*padding de 4px arriba y abajo, 0 a los lados*/
+      /*La franja inferior va al revés*/
+      transform: rotate(180deg); /*rotar texto 180*/
+    }                 
+ 
+    /*Aspecto visual texto dentro de "caja"*/
+    .text-inf {
+      display: inline-block;                  /*display que respeta configuración de textos y tenerlos uno al lado del otro*/
+      color: #000000;                       /*color de texto*/
+      font-family: 'pixelcursive', monospace; /*tipografía*/
+      font-weight: 400;                       /*grosor de texto normal(400)*/
+      font-size: clamp(28px, 4vw, 40px);      /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                       /*altura de línea de texto*/
+    }
+ 
+    /*-----------------------------------------------------
+       SECCIÓN SUPERIOR  (títulos + cabecera)
+    -----------------------------------------------------*/
+     /* Cabecera de color rojo */
+     .cabecera {
+     background: #FC5200; /*color de fondo*/
+     padding: 80px 65px;    /*espacio interior entre borde y contenido*/
+    }   
+
+    /*-------------Títulos-------------*/
+    /*título principal "Javiera Sáez"*/
+    .title_javiera_saez {
+      color: #000000;                       /*color*/
+      font-family: 'pixelcursive', monospace; /*tipografía*/
+      font-weight: 400;                       /*grosor de texto normal(400)*/
+      font-size: clamp(36px, 5.5vw, 75px);    /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                       /*altura de línea de texto*/
+      text-align: center;                     /*alineación del texto*/
+    }
+ 
+    /*título principal "Portafolio"*/
+    .title_portafolio {
+      color: #000000;                   /*color*/
+      font-family: 'bitcount', monospace; /*tipografía*/
+      font-weight: 600;                   /*grosor de texto normal(400)*/
+      font-size: clamp(36px, 5.5vw, 75px);/*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.2;                   /*altura de línea de texto*/
+      text-align: center;                 /*alineación del texto*/
+      letter-spacing: 2px;                /*espacio entre letras*/
+    }
+    
+    /*---------------------------------------------------
+       SECCIÓN TRABAJOS: tarjetas con los gatitos
+    ----------------------------------------------------*/
+
+    /* Área blanca de menú donde van las tarjetas */
+    .seccion-trabajos {
+      display: flex;          /*layout de elementos, flexible*/
+      position: relative;     /*posición de referencia*/
+      min-height: 550px;      /*altura mínima*/
+      overflow: visible;      /*contenido sobresale de elemento*/
+      margin-left: 0;         /*margen, izquierdo*/
+    }
+ 
+    /* Rectángulo decorativo amarillo a la derecha */
+    .rectangle_fondo_amarillo {
+      position: absolute;            /*posición relativa a referencia*/
+      right: 0;                      /*posición exacta respecto a contenedor de referencia, derecha*/
+      top: 0;                        /*posición exacta respecto a contenedor de referencia, arriba*/
+      width: 30%;                    /*ancho*/
+      height: 100%;                  /*altura*/
+      background: #FCC100;         /*color de fondo*/
+      border: 1px solid transparent; /*orilla*/
+      z-index: 0;                    /*control de apilamiento (nº mayor sobre menor)*/
+    }
+ 
+    /* Contenido principal sobre el fondo */
+    .contenido_principal {
+      position: relative;            /*posición de referencia*/
+      z-index: 1;                    /*control de apilamiento (nº mayor sobre menor)*/
+      width: 100%;                   /*ancho*/
+      padding: 40px 60px 80px 60px;  /*espacio interno entre elemento y su contenido*/
+      display: flex;                 /*layout de elementos, flexible*/
+      flex-direction: column;        /*específica orientación de items flex*/
+      gap: 24px;                     /*espacio entre "hijos" de un contenedor*/
+    }
+
+    /* Aspecto título "trabajos" */
+    .title_trabajos {
+     color: #000000;                   /*color*/
+     font-family: 'bitcount', monospace; /*tipografía*/
+     font-weight: 400;                   /*grosor de texto normal(400)*/
+     font-size: clamp(28px, 4vw, 50px);  /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+     letter-spacing: 2px;                /*espacio entre letras*/
+    }
+
+    /* Fila de tarjetas/gatitos */
+    .contenedor-botones {
+      display: flex;                     /*layout de elementos, flexible*/
+      flex-direction: row;               /*específica orientación de items flex*/
+      gap: 40px;                         /*espacio entre "hijos" de un contenedor*/
+      flex-wrap: wrap;                   /*elementos dentro de un contenedor pasa hacía abajo si no caben*/
+      align-items: flex-end; /* alinea por la base para que los textos queden a la misma altura */
+      margin-top: 16px;      /*margen, arriba*/
+      margin-left: 0;        /*margen, izquierdo*/
+      justify-content: left; /* centra las tres tarjetas horizontalmente */
+      padding-right: 0;      /*espacio interno entre elemento y su contenido*/
+    }
+ 
+    /* Tarjeta genérica (enlace) */
+    .tarjeta-categoria {
+      display: flex;             /*layout de elementos, flexible*/
+      flex-direction: column;    /*específica orientación de items flex*/
+      align-items: flex-start;   /*alinear por eje*/
+      gap: 12px;                 /*espacio entre "hijos" de un contenedor*/
+      text-decoration: none;     /*decoración de texto*/
+      cursor: pointer;           /*cambio del cursor*/
+    }
+ 
+    /* ------------------------------------------------------
+       TARJETA: rectángulo de color + imagen desplazada
+    ------------------------------------------------------- */
+    /*apariencia de tarjeta de área total*/
+    .tarjeta-visual {
+      position: relative;   /*posición de referencia*/
+      /* tamaño total del área = rectángulo + desplazamiento */
+      width: 340px;   /*ancho*/
+      height: 340px;  /*altura*/
+    }
+    /*ANIMACIÓN DE HOVER*/
+    /* Estado normal: prepara la animación */
+    .tarjeta-categoria {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*estado de transicion para animación*/
+    }
+    /*ANIMACIÓN DE HOVER*/
+    /* Al pasar el mouse (hover): se eleva y agrega sombra */
+    .tarjeta-categoria:hover {
+      transform: translateY(-8px);                           /*elevación*/
+      filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.2)); /*efecto de sombra*/
+    }
+ 
+    /* Rectángulos de color para botones de gatitos (abajo-izquierda) */
+    .rectangle_rojo,
+    .rectangle_amarillo,
+    .rectangle_azul {
+      position: absolute;              /*posición relativa a referencia*/
+      bottom: 0;                       /*posición exacta respecto a contenedor de referencia, abajo*/
+      left: 0;                         /*posición exacta respecto a contenedor de referencia, izquierda*/
+      width: 300px;                    /*ancho*/
+      height: 300px;                   /*altura*/
+      border-radius: 28px;             /*radio de orilla*/
+      border: 1px solid transparent;   /*orilla*/
+    }
+    /* Asignar sus colores correspondientes */
+    .rectangle_rojo    { background: #FC5200; }  /*color de fondo*/
+    .rectangle_amarillo{ background: #FCC100; }  /*color de fondo*/
+    .rectangle_azul    { background: #0C5EAE; }  /*color de fondo*/
+ 
+    /* Imágenes (arriba-derecha, desplazadas ~28px) */
+    .img_gatito1,
+    .img_gatito2,
+    .img_gatito3 {
+      position: absolute;     /*posición relativa a referencia*/
+      top: 0;                 /*posición exacta respecto a contenedor de referencia, arriba*/
+      right: 0;               /*posición exacta respecto a contenedor de referencia, derecha*/
+      width: 300px;           /*ancho*/
+      height: 300px;          /*altura*/
+      background: #E6E6E6;  /*color de fondo*/
+      border-radius: 24px;    /*radio de orilla*/
+      object-fit: cover;      /*rellena espacio sin deformarse*/
+      display: block;         /*layout de elementos, en bloque*/
+    }
+ 
+    /* Etiquetas de texto debajo de cada tarjeta */
+    .text_diseño-plan-comun,
+    .text-proyectos-personales,
+    .text-DID {
+      color: #000000;                                         /*color*/
+      font-family: 'abordage', "Helvetica", Arial, sans-serif;  /*tipografía*/
+      font-weight: 400;                                         /*grosor de texto normal(400)*/
+      font-size: clamp(13px, 1.5vw, 18px);                      /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                                         /*altura de línea de texto*/
+      text-align: left;                                         /*alineación del texto*/
+      margin-left: 15px;                                        /*margen, izquierdo*/
+    }
+ 
+    /*-----------------------------------------
+       FOOTER: contacto (fondo azul)
+    -----------------------------------------*/
+
+    /* FRANJA AZUL delgada de separación */
+    .rectangle_fondo_azul {
+      width: 100%;            /*ancho*/
+      height: 14px;           /*altura*/
+      background: #0C5EAE;  /*color de fondo*/
+    }
+ 
+    /*footer de menú*/
+    .footer {
+      background: #0C5EAE;      /*color de fondo*/
+      display: flex;              /*layout de elementos, flexible*/
+      flex-direction: row;        /*específica orientación de items flex*/
+      align-items: center;        /*alinear por eje*/
+      gap: 32px;                  /*espacio entre "hijos" de un contenedor*/
+      padding: 60px 60px 200px;   /*espacio interno entre elemento y su contenido*/
+    }
+ 
+    /* Foto de perfil */
+    .img-perfil {
+      width: 170px;         /*ancho*/
+      height: 170px;        /*altura*/
+      border-radius: 22px;  /*borde de orilla*/
+      object-fit: cover;    /*rellena espacio sin deformarse*/
+      flex-shrink: 0;       /*objeto no se achica*/
+      display: block;       /*layout de elementos, en bloque*/
+    }
+ 
+    /* Línea divisora vertical entre foto y texto */
+    .vertical-line-1 {
+      width: 1px;               /*ancho*/
+      height: 120px;            /*altura*/
+      background: #fbfdfd00;  /*color de fondo*/
+      flex-shrink: 0;           /*objeto no se achica*/
+    }
+ 
+    /* Bloque de nombre + descripción + contactos */
+    .bloque-contacto {
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: column; /*específica orientación de items flex*/
+      gap: 10px;              /*espacio entre "hijos" de un contenedor*/
+    }
+ 
+    /*texto para contactos*/
+    .text_contacto_javiera-saez {
+      color: #FBFDFD;                       /*color*/
+      font-family: 'pixelcursive', monospace; /*tipografía*/
+      font-weight: 400;                       /*grosor de texto normal(400)*/
+      font-size: clamp(18px, 2.5vw, 30px);    /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                       /*altura de línea de texto*/
+    }
+ 
+    /*texto para contactos*/
+    .text_contacto_info {
+      color: #FBFDFD;     /*color*/
+      font-family: 'abordage', "Helvetica", Arial, sans-serif;  /*tipografía*/
+      font-weight: 400;                                         /*grosor de texto normal(400)*/
+      font-size: clamp(12px, 1.3vw, 16px);                      /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.6;                                         /*altura de línea de texto*/
+    }
+ 
+    /* --------------------------------------------------------
+       FILA DE ICONOS DE CONTACTO
+       (separados por una línea vertical entre mail e instagram)
+    -------------------------------------------------------- */
+    /*orden de íconos*/
+    .fila-iconos {
+      display: flex;            /*layout de elementos, flexible*/
+      flex-direction: row;      /*específica orientación de items flex*/
+      align-items: flex-start;  /* alinea por arriba */
+      gap: 20px;                /*espacio entre "hijos" de un contenedor*/
+      margin-top: 4px;          /*margen, arriba*/
+    }
+ 
+    /* Cada grupo icono+texto es una columna */
+    .icono-grupo {
+      display: flex;            /*layout de elementos, flexible*/
+      flex-direction: column;   /*específica orientación de items flex*/
+      align-items: flex-start;  /*alinear por eje*/
+      gap: 4px;                 /*espacio entre "hijos" de un contenedor*/
+    }
+
+    /*aspecto visual fotos íconos*/
+    .img_software {
+      width: 60px;         /*ancho*/
+      height: 60px;        /*altura*/
+      border-radius: 6px;  /*borde de orilla*/
+      object-fit: cover;   /*rellena espacio sin deformarse*/
+      display: block;      /*layout de elementos, en bloque*/
+    }
+ 
+    /*aspecto visual fotos íconos*/
+    .img_mail,
+    .img_instagram {
+      width: 28px;         /*ancho*/
+      height: 28px;        /*altura*/
+      border-radius: 6px;  /*borde de orilla*/
+      object-fit: cover;   /*rellena espacio sin deformarse*/
+      display: block;      /*layout de elementos, en bloque*/
+    }
+ 
+    /*texto de íconos*/
+    .text_mail_udd,
+    .text_xxx {
+      color: #FBFDFD;     /*color*/
+      font-family: 'abordage', "Helvetica", Arial, sans-serif;  /*tipografía*/
+      font-weight: 400;                                         /*grosor de texto normal(400)*/
+      font-size: clamp(11px, 1.2vw, 14px);                      /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                                         /*altura de línea de texto*/
+    }
+ 
+    /* Línea vertical entre los dos grupos de iconos */
+    .vertical-line-2 {
+      width: 1px;             /*ancho*/
+      height: 52px;           /* cubre icono + texto */
+      background: #FBFDFD;  /*color de fondo*/
+      flex-shrink: 0;         /*objeto no se encoge*/
+      align-self: center;     /*alineación*/
+    }
+
+/*=======================================================================================
+
+PÁGINAS SUBMENUS: PLAN COMÚN, PROYECTOS PERSONALES Y DISEÑO DIGITAL
+
+=======================================================================================*/
+ 
+    /* -----------------------------------------
+       CUERPO PRINCIPAL: barra lateral + contenido
+   ----------------------------------------- */
+    /*Organizaciòn de página*/
+    .pagina {
+      display: flex;                   /*layout de elementos, flexible*/
+      flex-direction: row;             /*específica orientación de items flex*/
+      min-height: calc(100vh - 130px); /* altura mínima */
+    }
+ 
+    /* Rectángulo lateral izquierdo de color */
+    .rect-plan-comun,
+    .rect-personal,
+    .rect-did {
+      width: 300px;           /*ancho*/
+      flex-shrink: 0;         /*no cambia de tamaño*/
+      padding: 32px 23px;     /*espacio interno entre elemento y su contenido*/
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: column; /*específica orientación de items flex*/
+      gap: 24px;              /*espacio entre "hijos" de un contenedor*/
+    }
+    /* Establecer colores de cada uno */
+    .rect-plan-comun { background: #FC5200; } /*color de fondo*/
+    .rect-personal   { background: #FCC100; } /*color de fondo*/
+    .rect-did        { background: #0C5EAE; } /*color de fondo*/ 
+ 
+    /* Botón para volver al menú (ícono undo) */
+    .undo {
+      width: 48px;                          /*ancho*/
+      height: 50px;                         /*altura*/
+      cursor: pointer;                      /*cambio del cursor*/
+      display: block;                       /*layout de elementos, flexible*/
+      transition: all 0.3s ease;            /*estado de transicion para animación*/  
+      border-bottom: 2px solid transparent; /*línea para efecto hover, transparente por defecto*/
+
+    }
+    /*hover*/
+    .undo:hover {
+     border-bottom: 2px solid #000000; /*línea que aparece al hacer hover*/
+     transform: translateY(-2px);        /*se eleva levemente*/ 
+    }
+ 
+    /* Texto descriptivo */
+    .text-descriptivo {
+      width: 100%;                                            /*ancho*/
+      color: #000000;                                       /*color*/
+      font-family: 'abordage', Helvetica, Arial, sans-serif;  /*tipografía*/
+      font-weight: 400;                                       /*grosor de texto normal(400)*/
+      font-size: clamp(13px, 1.5vw, 18px);                    /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      line-height: 1.3;                                       /*altura de línea de texto*/
+      text-align: left;                                       /*alineación del texto*/
+    }
+ 
+    /* Área de imágenes */
+    .area-imagenes,
+    .area-imagenes-plan-comun {
+      flex: 1;
+      padding: 40px 48px;     /*espacio interno entre elemento y su contenido*/
+      display: grid;          /*layout de elementos, grilla*/
+      gap: 90px;              /*espacio entre "hijos" de un contenedor*/
+      align-content: start;   /*alinear al principio*/
+    }
+
+    /* 2 columnas para proyectos personales y diseño digital */
+    .area-imagenes {
+      grid-template-columns: repeat(2, 280px); /* dos columnas del mismo ancho que las imágenes */
+    }
+
+    /* 3 columnas para plan común */
+    .area-imagenes-plan-comun {
+     grid-template-columns: repeat(3, 280px);
+    }
+
+    /* Contenedor del efecto - posición relativa para que el texto se posicione dentro */
+    .foto-con-hover {
+      position: relative;      /*posición de referencia*/
+      display: block;          /*layout de elementos, en bloque*/
+      width: 332px;            /*ancho*/
+      border-radius: 28px;     /*borde de orilla*/
+      overflow: hidden;        /* corta el texto para que no se salga de la foto */
+      text-decoration: none;   /*decoración de texto*/
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*transición para efecto*/
+    }  
+    
+    /* Sombra y elevación van en el CONTENEDOR, no en la imagen */
+    .foto-con-hover:hover {
+      transform: translateY(-6px);                           /*elevación*/
+      filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.1)); /*sombra*/
+    }
+ 
+    /* Las tres imágenes placeholder para las fotos */
+    .foto-con-hover .image-placeholder-1,
+    .foto-con-hover .image-placeholder-2,
+    .foto-con-hover .image-placeholder-3 {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 332px;                    /*ancho*/
+      height: 465px;                   /*altura*/
+      background: #E6E6E6;           /*color de fondo*/
+      border-radius: 28px;             /*borde de orilla*/
+      object-fit: cover;               /*rellena espacio sin deformarse*/
+      display: block;                  /*layout de elementos, en bloque*/
+      transition: opacity 0.3s ease;   /* solo anima la opacidad */
+      opacity: 1;                      /* visible por defecto */ 
+    }
+    /*con el hover*/
+    .foto-con-hover:hover .image-placeholder-1,
+    .foto-con-hover:hover .image-placeholder-2,
+    .foto-con-hover:hover .image-placeholder-3 {
+      opacity: 0.4;     /*nivel de opacidad*/
+    }
+
+    /* Texto que aparece encima (invisible por defecto hasta que se interactua)*/
+    .foto-titulo {
+     position: absolute;          /*se posiciona dentro del .foto-con-hover*/
+     top: 50%;                    /*empieza desde el medio de imágen*/
+     transform: translateY(-50%); /*se ajusta a sí mismo para quedar exactamente centrado*/
+     left: 0;
+     width: 100%;                         /*ancho*/
+     text-align: center;                  /*alineación del texto*/
+     color: #000000;                    /*color*/
+     font-family: 'bitcount', monospace;  /*tipografía*/
+     font-size: clamp(25px, 1.5vw, 30px); /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+     opacity: 0;                          /* invisible por defecto */
+     transition: opacity 0.3s ease;       /*transición para animación*/
+     padding: 0 12px;                     /*espacio interno entre elemento y su contenido*/
+    }
+
+    .foto-con-hover:hover .foto-titulo {
+      opacity: 1;   /* texto aparece */
+}
+
+/*=======================================================================================
+
+PÁGINAS DE PROYECTOS
+
+=======================================================================================*/
+ 
+    /* Bloque superior de color */
+    .bloque-proyecto-rojo,
+    .bloque-proyecto-amarillo,
+    .bloque-proyecto-azul {
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: column; /*específica orientación de items flex*/
+    }
+    /* Asignar colores a bloques */
+    .bloque-proyecto-rojo     {background: #FC5200;}  /*color de fondo*/
+    .bloque-proyecto-amarillo {background: #FCC100;}  /*color de fondo*/
+    .bloque-proyecto-azul     {background: #0C5EAE;}  /*color de fondo*/
+ 
+    /* Fila de íconos: flecha volver + casa */
+    .proyecto-iconos {
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: row;    /*específica orientación de items flex*/
+      gap: 12px;              /*espacio entre "hijos" de un contenedor*/
+      padding: 20px 24px 0 0; /*espacio interno entre elemento y su contenido*/
+      align-items: center;    /*alinear por eje*/
+    }
+ 
+    /*ícono home*/
+    .home {
+      width: 55px;                          /*ancho*/
+      height: 57px;                         /*altura*/
+      cursor: pointer;                      /*cambio del cursor*/
+      display: block;                       /*layout de elementos, en bloque*/
+      transition: all 0.3s ease;            /*transición para efecto*/
+      border-bottom: 2px solid transparent; /*orilla, abajo*/
+      padding-bottom: 4px;                  /*espacio interno entre elemento y su contenido*/
+      object-fit: contain;                  /*objeto se ve entero*/
+    }
+
+    /*flecha para volver en pag de proyectos*/
+    .undo2 {
+      width: 60px;                          /*ancho*/
+      height: 60px;                         /*altura*/
+      cursor: pointer;                      /*cambio del cursor*/
+      display: block;                       /*layout de elementos, en bloque*/
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent; /*orilla, abajo*/
+      object-fit: contain;                  /*objeto se ve entero*/
+    }
+
+    /*aplicar hover*/
+    .home:hover,
+    .undo2:hover {
+      border-bottom: 2px solid #000000; /*orilla, abajo*/
+      transform: translateY(-2px);        /*movimiento*/
+    }
+ 
+    /* Fila principal: foto grande + texto */
+    .proyecto-header {
+      display: flex;                  /*layout de elementos, flexible*/
+      flex-direction: row;            /*específica orientación de items flex*/
+      align-items: flex-start;        /*alinear por eje*/
+      gap: 40px;                      /*espacio entre "hijos" de un contenedor*/
+      padding: 40px 60px 50px 60px;   /*espacio interno entre elemento y su contenido*/
+    }
+/*------------------------------EFECTO PARALLAX------------------------------*/
+    /* Contenedor del parallax - Foto principal del proyecto (izquierda) */
+    #parallax-scene {
+     position: relative;                                /*posición de referencia*/
+     width: 342px;                                      /*ancho*/
+     height: 475px;                                     /*altura*/
+     border-radius: 28px;                               /*radio de orilla*/
+     overflow: hidden;                                  /*no se ve overflow al salir de contenedor*/
+     flex-shrink: 0;                                    /*objeto no se achica*/
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*transición para efecto*/
+    }
+
+    /*hover*/
+    #parallax-scene:hover {
+    transform: translateY(-6px);                           /*elevación*/
+    filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.2)); /*sombra*/
+    }
+
+/* La capa de imagen dentro del parallax */
+  #parallax-scene .layer {
+    position: absolute;                  /*posición relativa a referencia*/
+   width: 115%;                          /* más grande que el contenedor para que haya espacio de movimiento */
+   height: 115%;                         /*altura*/
+   background-size: cover;               /*tamaño de fondo, cubrir*/
+    background-position: center;         /*posición de fondo*/
+   transition: transform 0.1s ease-out;  /*transicón de animación*/
+   /* top y left negativos para centrar la imagen */
+    top: -7.5%;                         /*posición exacta respecto a contenedor de referencia, arriba*/
+   left: -7.5%;                         /*posición exacta respecto a contenedor de referencia, izquierda*/
+    }
+/*------------------------------FIN EFECTO PARALLAX------------------------------*/
+    /* Espacio de bloque de texto (derecha) */
+    .proyecto-texto {
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: column; /*específica orientación de items flex*/
+      gap: 12px;              /*espacio entre "hijos" de un contenedor*/
+      padding-top: 8px;       /*espacio interno entre elemento y su contenido*/
+      max-width: 1000px;      /*ancho máximo*/
+    }
+    /*texto de títulos*/
+    .proyecto-titulo {
+      font-family: 'bitcount', monospace; /*tipografía*/
+      font-size: clamp(40px, 4vw, 55px);  /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      font-weight: 400;                   /*grosor de texto normal(400)*/
+      color: #000000;                   /*color*/
+      line-height: 1.2;                   /*altura de línea de texto*/
+    }
+    /* subtítulo: examen, profesor */
+    .proyecto-subtitulo {
+      font-family: 'bitcount', monospace; /*tipografía*/
+      font-size: clamp(30px, 1.2vw, 40px);/*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      font-weight: 400;                   /*grosor de texto normal(400)*/
+      color: #000000;                   /*color*/
+      line-height: 1;                     /*altura de línea de texto*/
+      
+    }
+    /*subtítulo más pequeño: ayudante*/
+    .proyecto-sub-subtitulo {
+      font-family: 'bitcount', monospace;   /*tipografía*/
+      font-size: clamp(20px, 1.2vw, 35px);  /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      font-weight: 400;                     /*grosor de texto normal(400)*/
+      color: #000000;                     /*color*/
+      line-height: 0.5;                     /*altura de línea de texto*/
+  
+    }
+    /*cuerpo de texto*/
+    .proyecto-descripcion {
+      font-family: 'abordage', Helvetica, Arial, sans-serif;  /*tipografía*/
+      font-size: clamp(14px, 1.3vw, 20px); /*parámetros de cambios en tamaño de texto dentro de distintas pantallas(mín, espacio que ocupa, máx)*/
+      font-weight: 400;                    /*grosor de texto normal(400)*/
+      color: #000000;                    /*color*/
+      line-height: 1.6;                    /*altura de línea de texto*/
+      margin-top: 8px;                     /*margen, arriba*/
+      text-align: justify;                 /*para texto justificado*/
+    }
+ 
+  /*------------------------------GALERÍA DE FOTOS------------------------------*/
+    /*galería de fotos simple*/
+    .proyecto-galeria {
+      background: #ffffff;  /*color de fondo*/
+      padding: 40px 48px;     /*espacio interno entre elemento y su contenido*/
+      display: flex;          /*layout de elementos, flexible*/
+      flex-direction: column; /*específica orientación de items flex*/
+      gap: 32px;              /*espacio entre "hijos" de un contenedor*/
+    }
+ 
+    /* Grilla de imágenes de la galería */
+    .galeria-grid {
+      display: grid;                                              /*layout de elementos, grilla*/
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));/*template de la grilla*/
+      gap: 20px;                                                  /*espacio entre "hijos" de un contenedor*/
+    }
+ 
+    /* Cada imagen de la galería */
+    .galeria-img {
+      width: 100%;                                        /*ancho*/
+      aspect-ratio: 3 / 4;                                /*ratio de tamaño*/
+      object-fit: cover;                                  /*rellena espacio sin deformarse*/
+      border-radius: 16px;                                /*radio de orilla*/
+      display: block;                                     /*layout de elementos, en bloque*/
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /*transicón de animación*/
+    }
+    /*hover*/
+    .galeria-img:hover {
+      transform: translateY(-4px);                            /*elevación*/
+      filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18)); /*sombra*/
+    }
+ 
+    /* Imagen que ocupa todo el ancho (foto panorámica) */
+    .galeria-img-ancha {
+      width: 100%;                                      /*ancho*/
+      aspect-ratio: 16 / 7;                             /*ratio de tamaño*/
+      object-fit: cover;                                /*rellena espacio sin deformarse*/
+      border-radius: 16px;                              /*radio de orilla*/
+      display: block;                                   /*layout de elementos, en bloque*/
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);/*transicón de animación*/
+    }
+    /*hover*/
+    .galeria-img-ancha:hover {
+      transform: translateY(-4px);                            /*elevación*/
+      filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18)); /*sombra*/
+    }
+ /*------------------------------FIN GALERÍA DE FOTOS------------------------------*/
+
+ /*----------------------------GALERÍA DE FOTOS MOSAICO------------------------------*/
+ /*(para filas de fotos con distintos tamaños- Timbres y aretes)*/
+/*fotos de a dos*/
+.galeria-grid-mosaico2 {
+  columns: 2 260px;       /* crea 3 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
+  column-gap: 20px;       /* espacio entre columnas */
+}
+/*fotos de a tres*/
+.galeria-grid-mosaico3 {
+  columns: 3 260px;       /* crea 3 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
+  column-gap: 20px;       /* espacio entre columnas */
+}
+/*look de las imagenes*/
+.galeria-grid-mosaico2 img,
+.galeria-grid-mosaico3 img {
+  width: 100%;                                 /* la foto ocupa todo el ancho de su columna */
+  height: auto;                                /* alto automático: respeta la proporción original de cada foto */
+  max-height: 420px;                           /* altura máxima */
+  display: block;                              /* layout de elementos, en bloque */
+  border-radius: 28px;                         /* radio de esquinas */
+  margin-bottom: 20px;                         /* espacio vertical entre fotos de la misma columna */
+  break-inside: avoid;                         /* evita que una foto se corte a la mitad entre dos columnas */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* transición suave para el hover */
+}
+/*hover*/
+.galeria-grid-mosaico2 img:hover,
+.galeria-grid-mosaico3 img:hover {
+  transform: translateY(-4px);                             /* elevación */
+  filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18));  /* sombra */
+}
+/*----------------------------FIN GALERÍA DE FOTOS MOSAICO------------------------------*/
+/*-------------------------------GALERÍA DE SPRITES------------------------------*/
+/*para mostrar bien los sprites de MaoMao*/
+.galeria-sprites {
+  display: flex;              /* layout de elementos, flexible:pone todos los sprites en fila */
+  flex-wrap: wrap;            /* si no caben todos en una fila, los pasa a la siguiente línea */
+  justify-content: center;    /* los centra horizontalmente */
+  align-items: center;        /* los alinea verticalmente entre sí */
+  gap: 24px;                  /* gap entre cada sprite */
+  padding: 20px 0;            /* gap superior */
+}
+/*look de imagenes sprites*/
+.galeria-sprites img {
+  width: 140px;                        /* ancho */
+  height: auto;                        /* mantiene la proporción original de cada sprite */
+  image-rendering: pixelated;          /* evita que el navegador difumine los píxeles al escalar: para que no se vean borroso */
+  /*cursor: default;                   /* cursor normal, sin zoom (no son clickeables) */
+}
+/*----------------------------FIN GALERÍA DE SPRITES------------------------------*/
+
+/*------------------------------CARRUSEL POR DESVANECIMIENTO (fade)------------------------------*/
+/*look del carrusel*/
+.carrusel-desvanecimiento {
+  position: relative;     /*posición de referencia*/
+  width: 100%;            /*puede ocupar todo el ancho de la página*/
+  height: 650px;          /*altura*/
+  margin: 0 auto;         /*centra el carrusel*/
+  border-radius: 25px;    /*radio de orilla*/
+  overflow: hidden;       /*esconder overflow*/
+  background: #000;     /*color de fondo (se ve durante transparencia)*/
+}
+
+/*Cada foto del carrusel ocupa todo el espacio, apiladas una sobre otra*/
+.carrusel-desvanecimiento .fade-slide {
+  position: absolute;                   /*posición relativa a referencia*/
+  inset: 0;                             /*equivale a top:0; right:0; bottom:0; left:0; */
+  opacity: 0;                           /*baja opacidad a 0*/
+  transition: opacity 0.8s ease-in-out; /*transición: sube opacidad*/
+}
+
+/* La diapositiva activa (visible) */
+.carrusel-desvanecimiento .fade-slide.activo {
+  opacity: 1;  /*se restaura opacidad*/
+}
+/*imágenes del slide*/
+.carrusel-desvanecimiento .fade-slide img {
+  width: 100%;         /*ancho*/
+  height: 100%;        /*altura*/
+  object-fit: cover;   /*rellena espacio sin deformarse*/
+  display: block;      /*layout de elementos, en bloque*/
+}
+
+/*------------------------------FIN CARRUSEL POR DESVANECIMIENTO (fade)------------------------------*/
+
+/*------------------------------CARRUSEL MANUAL------------------------------*/
+/* Contenedor externo - necesita position:relative para las flechas */
+.carrusel-manual-contenedor {
+  position: relative;       /* posición de referencia*/
+  width: 100%;              /* ancho*/
+  padding: 40px 48px;       /* mismo padding que .proyecto-galeria */
+  box-sizing: border-box;   /* incluye borde y padding dentro del ancho y alto*/
+}
+
+/* Ventana que corta lo que se sale */
+.carrusel-ventana {
+  overflow: hidden;     /*esconder overflow*/
+  border-radius: 20px;  /*radio de orilla*/
+  width: 100%;          /*ancho*/
+}
+
+/* La fila de fotos - necesita width:100% para que las fotos se calculen bien */
+.carrusel-track {
+  display: flex;                          /*layout de elementos, flexible*/
+  width: 100%;                            /*ancho*/
+  transition: transform 0.5s ease-in-out; /* transición para efecto */
+}
+
+/* Cada foto: ocupa exactamente 1/2 del contenedor */
+.carrusel-foto {
+  flex: 0 0 50%;            /* ocupa 1/2*/
+  width: 50%;               /*ancho*/
+  aspect-ratio: 4 / 3;      /* proporción horizontal para fotos */
+  object-fit: cover;        /*rellena espacio sin deformarse*/
+  border-radius: 16px;      /*radio de orilla*/
+  padding: 0 8px;           /*espacio interno entre elemento y su contenido*/
+  box-sizing: border-box;   /*radio de orilla*/
+  transition: all 0.3s ease;/* transición para efecto */
+}
+/*hover*/
+.carrusel-foto:hover {
+  transform: translateY(-4px);                            /*elevación*/
+  filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18));/*sombra*/
+}
+/*------------------------------FIN CARRUSEL MANUAL------------------------------*/
+/*------------------------------CARRUSEL BOTONES------------------------------*/
+/* Botones de flecha - comparten animación con .carrusel-flecha-siguiente */
+/*Botón "siguiente" (carrusel desvanecimiento)*/
+/*Botón "siguiente" (carrusel manual)*/
+.carrusel-flecha-siguiente,
+.carrusel-btn {
+  position: absolute;               /*posición relativa a referencia*/
+  padding: 0;                       /*espacio interno entre elemento y su contenido*/
+  border: none;                     /*orilla*/
+  background: transparent;          /*color de fondo, transparente*/
+  cursor: pointer;                  /*cambio del cursor*/
+  z-index: 10;                      /*control de apilamiento (nº mayor sobre menor)*/
+  transition: transform 0.3s ease;  /*transición para efecto*/
+}
+/*look de imagenes*/
+.carrusel-flecha-siguiente img,
+.carrusel-btn img {
+  width: 44px;          /*ancho*/
+  height: 44px;         /*altura*/
+  object-fit: contain;  /*objeto se ve entero*/
+  display: block;       /*layout de elementos, en bloque*/
+}
+
+/* Flecha del carrusel por desvanecimiento: abajo a la derecha */
+.carrusel-flecha-siguiente {
+  bottom: 20px; /*posición exacta respecto a contenedor de referencia, abajo*/
+  right: 20px;  /*posición exacta respecto a contenedor de referencia, derecha*/
+}
+/*hover*/
+.carrusel-flecha-siguiente:hover {
+  transform: scale(1.15);
+}
+
+/* Flechas del carrusel manual: a los lados, centradas verticalmente */
+/*flecha izquierda*/
+.carrusel-btn.izquierda {
+  position: absolute;            /*posición relativa a referencia*/
+  left: 60px;                    /*posición exacta respecto a contenedor de referencia, izquierda*/
+  top: 50%;                      /*posición exacta respecto a contenedor de referencia, arriba*/
+  transform: translateY(-50%);   /*elevación*/
+  z-index: 10;                   /* Botones quedan POR ENCIMA del carrusel de fotos (por ende eje z)*/
+}
+/*flecha derecha*/
+.carrusel-btn.derecha {
+  position: absolute;           /*posición relativa a referencia*/
+  right: 60px;                  /*posición exacta respecto a contenedor de referencia, derecha*/
+  top: 50%;                     /*posición exacta respecto a contenedor de referencia, arriba*/
+  transform: translateY(-50%);  /*elevación*/
+  z-index: 10;                  /* Botones quedan POR ENCIMA del carrusel de fotos (por ende eje z)*/
+}
+/*hover*/
+.carrusel-btn.izquierda:hover,
+.carrusel-btn.derecha:hover {
+  transform: translateY(-50%) scale(1.15); /*transicón de animación*/
+}
+/*------------------------------FIN CARRUSEL BOTONES------------------------------*/
+
+/*------------------------------------------------------
+LIGHTBOX (efecto de zoom al hacer click en una foto)
+------------------------------------------------------*/
+
+/* Cursor de zoom en cualquier imagen que se pueda ampliar */
+.zoomable {
+  cursor: zoom-in;                                            /* cursor especial: indica "puedes ampliar esto" */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);     /* transición suave para el efecto hover de abajo */
+}
+
+/* Pequeño efecto al pasar el mouse sobre una imagen ampliable */
+.zoomable:hover {
+  transform: scale(1.02);        /* se agranda un 2%: le avisa al usuario que es clickeable */
+}
+
+/* Fondo oscuro que cubre toda la pantalla cuando el lightbox está abierto */
+.lightbox {
+  display: none;                     /* oculto por defecto; el JS lo cambia a "flex" al hacer click */
+  position: fixed;                   /* fijo respecto a la ventana del navegador, no se mueve con el scroll */
+  top: 0;                            /*posición exacta respecto a contenedor de referencia, arriba*/
+  left: 0;                           /*posición exacta respecto a contenedor de referencia, izquierda*/
+  width: 100%;                       /*ancho*/
+  height: 100%;                      /*altura*/
+  background: rgba(0, 0, 0, 0.9);  /* negro con 90% de opacidad, deja ver un poco el fondo */
+  z-index: 999;                      /* se dibuja por encima de todo el resto del contenido */
+  justify-content: center;           /* centra la imagen horizontalmente (aplica cuando display:flex) */
+  align-items: center;               /* centra la imagen verticalmente */
+  cursor: zoom-out;                  /* le indica al usuario que al hacer click en cualquier parte, se cierra */
+}
+
+/* La imagen ampliada, dentro del lightbox */
+.lightbox img {
+  max-width: 90%;                    /* nunca ocupa más del 90% del ancho de la pantalla */
+  max-height: 90%;                   /* ni más del 90% del alto de la pantalla */
+  border: 3px solid white;         /* marco blanco alrededor de la foto ampliada */
+  border-radius: 8px;                /*radio de orilla*/
+  object-fit: contain;               /* la imagen se ve completa, sin recortarse ni deformarse */
+}
+/*------------------------------VIDEO MAO MAO------------------------------*/
+/* Video del juego en la galería */
+.galeria-video {
+  width: 100%;             /* ocupa todo el ancho disponible */
+  max-width: 700px;        /* pero no más de 700px */
+  border-radius: 20px;     /* esquinas redondeadas */
+  display: block;          /*modo de siplay en bloque*/
+  margin: 0 auto;          /* centrado horizontalmente */
+  margin-bottom: 40px;     /*espacio margen hacia abajo*/
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /*transicón para efecto*/
+}
+/*hover*/
+.galeria-video:hover {
+  transform: translateY(-4px);                            /*elevación*/
+  filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18)); /*sombra*/
+}
+/*------------------------------FIN VIDEO MAO MAO------------------------------*/
+
+/*FIN CSS*/

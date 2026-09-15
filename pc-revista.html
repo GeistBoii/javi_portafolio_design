@@ -1,0 +1,163 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal (español) -->
+<html lang="es">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsiva, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Revista The Andes House</title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vincula la hoja de estilos CSS externa-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+
+ <!--=======================================================
+      FRANJA SUPERIOR ANIMADA
+  =======================================================-->
+  <!---Aspecto visual texto-->
+  <div class="franja-texto"> 
+    <!---Movimiento de texto--->   
+    <div class="ticker-track">  
+    <!---Dos copias de texto--> 
+      <span class="text-sup">RevistaTheAndesHouseRevistaTheAndesHouseRevistaTheAndesHouse</span>
+      <span class="text-sup">RevistaTheAndesHouseRevistaTheAndesHouseRevistaTheAndesHouse</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto -->
+
+  <!---Selecciónar bloque de color correcto-->
+  <div class="bloque-proyecto-rojo">
+ 
+    <!-- Foto principal + texto descriptivo -->
+    <div class="proyecto-header">  
+ 
+      <!-- IMAGEN PRINCIPAL CON EFECTO PARALLAX -->
+       <!-- Contenedor del efecto parallax (id único para que JavaScript lo identifique) -->
+      <div id="parallax-scene" class="proyecto-foto-principal">
+        <!--layer de imagen dentro del parallax, velocidad 3, apunta al archivo de la imagen dentro de assets-->
+       <div class="layer" data-speed="3" style="background-image: url('assets/revista-menu.webp');">
+       </div><!--fin de layer-->
+      </div><!--fin de proyecto-foto-principal-->
+ 
+    <!--=====================================================
+         BLOQUE DE TEXTO: íconos + título + descripción
+    =====================================================-->
+      <!--Bloque de texto (derecha)-->
+      <div class="proyecto-texto">
+
+    <!-- Fila de íconos: volver al submenú + ir al menú principal -->
+    <div class="proyecto-iconos">
+       <!-- Enlace que lleva de vuelta al submenú de Proyectos Personales -->
+      <a href="plan-comun.html" target="_self">
+        <!--img icono de undo-->
+        <img src="assets/undo.png" class="undo2" alt="Volver">
+      </a>
+      <!-- Enlace que lleva de vuelta al menú principal -->
+      <a href="index.html" target="_self">
+        <!--img icono de home-->
+        <img src="assets/home.png" class="home" alt="Inicio">
+      </a>
+    </div><!-- fin proyecto-iconos -->
+
+         <!-- Título principal del proyecto -->
+        <h1 class="proyecto-titulo">Revista The Andes House</h1>
+         <!-- Subtítulo del proyecto -->
+        <h3 class="proyecto-subtitulo">Diseño Contemporáneo</h3>
+        <h4 class="proyecto-sub-subtitulo">Profesor: Hernán Gárfias Arze</h4>  
+        <h4 class="proyecto-sub-subtitulo">Ayudante: Schlomit Loudres Farías Hernandez</h4>  
+ 
+        <!-- Descripción del proyecto -->
+        <p class="proyecto-descripcion">
+          Creación de un informe en formato revista sobre un estudio de diseño Chileno, The Andes House, confeccionada a partir de una entrevista con su fundador, Cristián Domínguez.<br><br>
+          Equipo: Antonia Echegaray, Javiera Sáez & Angela Kwon.<br><br>
+          Aporte personal: paleta de colores, diagramación principal y encuadernación.
+        </p>
+      </div><!-- fin proyecto-texto -->
+
+    </div><!-- fin proyecto-header -->
+  </div><!-- fin bloque-proyecto -->
+
+  <!-----------------------------------------------------------
+      CARRUSEL MANUAL
+  ------------------------------------------------------------>
+<!-- Contenedor del carrusel-->
+<div class="carrusel-manual-contenedor">
+
+  <!-- Ventana visible: corta las fotos que salen del área -->
+  <div class="carrusel-ventana" id="ventana-revista">
+
+    <!-- Track: la fila de fotos que se desplaza en píxeles (marcado con id zoomable) -->
+    <div class="carrusel-track" id="track-revista">
+      <img src="assets/galería-revista/revista-1A.webp" class="carrusel-foto zoomable" alt="Revista 1">
+      <img src="assets/galería-revista/revista-1B.webp" class="carrusel-foto zoomable" alt="Revista 2">
+      <img src="assets/galería-revista/revista-1C.webp" class="carrusel-foto zoomable" alt="Revista 3">
+      <img src="assets/galería-revista/revista-1D.webp" class="carrusel-foto zoomable" alt="Revista 4">
+    </div><!-- Fin carrusel-track -->
+
+  </div><!-- Fin carrusel-ventana-->
+
+  <!-- Flechas interactivas-->
+   <!-- Flecha izquierda -->
+  <button class="carrusel-btn izquierda"
+          onclick="deslizarCarrusel('track-revista', 'ventana-revista', -1)">
+    <img src="assets/flechas/flecha-izquierda.png" alt="Anterior">
+  </button>
+  <!-- Flecha derecha -->
+  <button class="carrusel-btn derecha"
+          onclick="deslizarCarrusel('track-revista', 'ventana-revista', 1)">
+    <img src="assets/flechas/flecha-derecha.png" alt="Siguiente">
+  </button>
+
+</div><!-- Fin carrusel-manual-contenedor -->
+
+  <!--=======================================================
+      GALERÍA DE IMÁGENES
+  =======================================================-->
+  <!-- Área blanca de galería -->
+  <div class="proyecto-galeria">
+ 
+    <!-- Grilla simple de fotos (marcado con id zoomable) -->
+    <div class="galeria-grid">
+      <img src="assets/galería-revista/revista-2A.webp" class="galeria-img zoomable" alt="Revista detalle 1">
+      <img src="assets/galería-revista/revista-2B.webp" class="galeria-img zoomable" alt="Revista detalle 2">
+      <img src="assets/galería-revista/revista-2C.webp" class="galeria-img zoomable" alt="Revista detalle 3">
+    </div><!-- fin galeria-grid -->
+ 
+  </div><!-- fin proyecto-galeria -->
+
+  <!--=======================================================
+      FRANJA INFERIOR ANIMADA
+  =======================================================-->
+   <!---Aspecto visual texto-->
+  <div class="franja-texto-inferior">
+    <!---Movimiento de texto---> 
+    <div class="ticker-track">
+        <!--Dos copias de texto-->
+      <span class="text-inf">RevistaTheAndesHouseRevistaTheAndesHouseRevistaTheAndesHouse</span>
+      <span class="text-inf">RevistaTheAndesHouseRevistaTheAndesHouseRevistaTheAndesHouse</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto-inferior -->
+
+  <!-- Estructura del lightbox (fondo oscuro + imagen ampliada) -->
+<!-- Se reutiliza para el zoom de cualquier foto marcada con la clase "zoomable" -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+</div><!-- fin lightbox -->
+
+  <!-- Vincula la hoja de JavaScript externa -->
+  <script src="js/script.js"></script>
+ 
+</body><!--FIN BODY-->
+</html><!--FIN PÁGINA-->

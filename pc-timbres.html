@@ -1,0 +1,156 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal (español) -->
+<html lang="es">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsiva, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Set de Timbres</title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vincula la hoja de estilos CSS externa-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+
+ <!--=======================================================
+      FRANJA SUPERIOR ANIMADA
+  =======================================================-->
+  <!---Aspecto visual texto-->
+  <div class="franja-texto"> 
+    <!---Contiene las dos copias de texto juntas para una animación continua--->   
+    <div class="ticker-track">  
+    <!---Dos copias de texto--> 
+      <span class="text-sup">SetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbres</span>
+      <span class="text-sup">SetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbres</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto -->
+
+  <!---Selecciónar bloque de color correcto-->
+  <div class="bloque-proyecto-rojo">
+ 
+    <!-- Foto principal + texto descriptivo -->
+    <div class="proyecto-header">  
+ 
+      <!-- IMAGEN PRINCIPAL CON EFECTO PARALLAX -->
+       <!-- Contenedor del efecto parallax (id único para que JavaScript lo identifique) -->
+      <div id="parallax-scene" class="proyecto-foto-principal">
+        <!--layer de imagen dentro del parallax, velocidad 3, apunta al archivo de la imagen dentro de assets-->
+       <div class="layer" data-speed="3" style="background-image: url('assets/timbres-menu.webp');">
+       </div><!--fin de layer-->
+      </div><!--fin de proyecto-foto-principal-->
+ 
+    <!--=====================================================
+         BLOQUE DE TEXTO: íconos + título + descripción
+    =====================================================-->
+      <!--Bloque de texto (derecha)-->
+      <div class="proyecto-texto">
+
+    <!-- Fila de íconos: volver al submenú + ir al menú principal -->
+    <div class="proyecto-iconos">
+       <!-- Enlace que lleva de vuelta al submenú de Proyectos Personales -->
+      <a href="plan-comun.html" target="_self">
+        <!--img icono de undo-->
+        <img src="assets/undo.png" class="undo2" alt="Volver">
+      </a>
+      <!-- Enlace que lleva de vuelta al menú principal -->
+      <a href="index.html" target="_self">
+        <!--img icono de home-->
+        <img src="assets/home.png" class="home" alt="Inicio">
+      </a>
+    </div><!-- fin proyecto-iconos -->
+
+         <!-- Título principal del proyecto -->
+        <h1 class="proyecto-titulo">Set de Timbres</h1>
+         <!-- Subtítulo del proyecto -->
+        <h3 class="proyecto-subtitulo">Proyecto RED: Buin Zoo</h3>
+        <h4 class="proyecto-sub-subtitulo">Profesores: Maria José Quinteros & Teresita Silva</h4>     
+ 
+        <!-- Descripción del proyecto -->
+        <p class="proyecto-descripcion">
+          Se encargó la confección de un set de íconos gráficos que representaran un ecosistema en específico, los sistemas fluviales y ribereños, para aplicarlos dentro de un set de timbres, forro de libreta y tote bag. Se utilizó como principal referente a los humedales de Valdivia por su especial vulnerabilidad.<br><br>
+          Equipo: Bastian Fajardo, Javiera Sáez, Loreto Soto & Susan Yáñez.<br><br>
+          Aporte personal: vectorización de iconos, ilustración para caja y confección de objetos físicos (gráfica tote bag, forro de libreta y caja de timbres).
+        </p>
+      </div><!-- fin proyecto-texto -->
+ 
+    </div><!-- fin proyecto-header -->
+  </div><!-- fin bloque-proyecto -->
+ 
+  <!--=======================================================
+      GALERÍA DE IMÁGENES
+  =======================================================-->
+  <!-- Área blanca de galería -->
+  <div class="proyecto-galeria">
+
+    <!------------------------------------------------------
+     Carrusel de desvanecimiento entre fotos 
+     ------------------------------------------------------->
+    <div id="carrusel-des" class="carrusel-desvanecimiento">
+
+      <!-- Primera foto - visible al cargar -->
+      <div class="fade-slide activo">
+        <img src="assets/galería-timbres/timbres-1A.webp" alt="Timbres detalle 1">
+      </div>
+
+      <!-- Segunda foto - oculta al cargar, aparece al presionar el botón -->
+      <div class="fade-slide">
+        <img src="assets/galería-timbres/timbres-1B.webp" alt="Timbres detalle 2">
+      </div>
+
+      <!-- Botón "siguiente" con imagen de flecha -->
+      <button onclick="changeFade()" class="carrusel-flecha-siguiente">
+        <img src="assets/flechas/flecha-derecha.png" alt="Siguiente">
+      </button>
+
+    </div><!-- fin carrusel-des -->
+ 
+    <!-- Grilla mosaico para fotos (no se adaptaban a grilla simple) (marcado con id zoomable) -->
+    <div class="galeria-grid-mosaico2">
+      <img src="assets/galería-timbres/timbres-2A.webp" class="galeria-img zoomable" alt="Timbres detalle 1">
+      <img src="assets/galería-timbres/timbres-2B.webp" class="galeria-img zoomable" alt="Timbres detalle 2">
+      </div>
+    
+    <!-- Grilla simple de fotos (para proyectos sin carrusel) -->
+    <div class="galeria-grid">
+      <img src="assets/galería-timbres/timbres-3A.webp" class="galeria-img zoomable" alt="Timbres detalle 1">
+      <img src="assets/galería-timbres/timbres-3B.webp" class="galeria-img zoomable" alt="Timbres detalle 2">
+      <img src="assets/galería-timbres/timbres-3C.webp" class="galeria-img zoomable" alt="Timbres detalle 3">
+    </div>
+  </div><!-- fin proyecto-galeria -->
+
+  <!--=======================================================
+      FRANJA INFERIOR ANIMADA
+  =======================================================-->
+   <!---Aspecto visual texto-->
+  <div class="franja-texto-inferior">
+    <!---Contiene las dos copias de texto juntas para una animación continua---> 
+    <div class="ticker-track">
+        <!--Dos copias de texto-->
+      <span class="text-inf">SetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbres</span>
+      <span class="text-inf">SetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbresSetDeTimbres</span>
+    </div><!-- fin ticker-track -->
+  </div><!-- fin franja-texto-inferior -->
+
+  <!-- Estructura del lightbox (fondo oscuro + imagen ampliada) -->
+<!-- Se reutiliza para el zoom de cualquier foto marcada con la clase "zoomable" -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+</div><!-- fin lightbox -->
+
+  <!-- Vincula la hoja de JavaScript externa -->
+  <script src="js/script.js"></script>
+ 
+</body><!--FIN BODY-->
+</html><!--FIN PÁGINA-->

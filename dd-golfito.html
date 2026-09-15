@@ -1,0 +1,170 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal (español) -->
+<html lang="es">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsiva, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Set de Timbres</title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vincula la hoja de estilos CSS externa-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+
+ <!--=======================================================
+      FRANJA SUPERIOR ANIMADA
+  =======================================================-->
+  <!---Aspecto visual texto-->
+  <div class="franja-texto"> 
+    <!---Contiene las dos copias de texto juntas para una animación continua--->   
+    <div class="ticker-track">  
+    <!---Dos copias de texto--> 
+      <span class="text-sup">GolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasurero</span>
+      <span class="text-sup">GolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasurero</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto -->
+
+  <!---Selecciónar bloque de color correcto-->
+  <div class="bloque-proyecto-azul">
+ 
+    <!-- Foto principal + texto descriptivo -->
+    <div class="proyecto-header">  
+ 
+      <!-- IMAGEN PRINCIPAL CON EFECTO PARALLAX -->
+       <!-- Contenedor del efecto parallax (id único para que JavaScript lo identifique) -->
+      <div id="parallax-scene" class="proyecto-foto-principal">
+        <!--layer de imagen dentro del parallax, velocidad 3, apunta al archivo de la imagen dentro de assets-->
+       <div class="layer" data-speed="3" style="background-image: url('assets/golfito-menu.webp');">
+       </div><!--fin de layer-->
+      </div><!--fin de proyecto-foto-principal-->
+ 
+    <!--=====================================================
+         BLOQUE DE TEXTO: íconos + título + descripción
+    =====================================================-->
+      <!--Bloque de texto (derecha)-->
+      <div class="proyecto-texto">
+
+    <!-- Fila de íconos: volver al submenú + ir al menú principal -->
+    <div class="proyecto-iconos">
+       <!-- Enlace que lleva de vuelta al submenú de Proyectos Personales -->
+      <a href="diseno-digital.html" target="_self">
+        <!--img icono de undo-->
+        <img src="assets/undo.png" class="undo2" alt="Volver">
+      </a>
+      <!-- Enlace que lleva de vuelta al menú principal -->
+      <a href="index.html" target="_self">
+        <!--img icono de home-->
+        <img src="assets/home.png" class="home" alt="Inicio">
+      </a>
+    </div><!-- fin proyecto-iconos -->
+
+         <!-- Título principal del proyecto -->
+        <h1 class="proyecto-titulo">Golfito Basurero</h1>
+         <!-- Subtítulo del proyecto -->
+        <h3 class="proyecto-subtitulo">Taller de Interacción Digital II</h3>
+        <h4 class="proyecto-sub-subtitulo">Profesores: Alex Hurtado & Dario Osorio</h4>     
+ 
+        <!-- Descripción del proyecto -->
+        <p class="proyecto-descripcion">
+          Se encargó la confección de un objeto lúdico que careciera de indicaciones de uso explícitas, si no que su uso se entendiera inherentemente a través de su morfología. Era requerido además el empleo de algún tipo de motor, por el cual se decidió modelar este personaje jugando golf, usando un servo motor para su movimiento de “swing”. Si bien tiene una simple función, la de tirar basura al posicionar su boca sobre un basurero, sirve más que nada como un objeto amigable.<br><br>
+          Equipo: Bastian Fajardo & Javiera Sáez<br><br>
+          Aporte personal: diseño y modelado del artefacto e impresión 3D.
+        </p>
+      </div><!-- fin proyecto-texto -->
+ 
+    </div><!-- fin proyecto-header -->
+  </div><!-- fin bloque-proyecto -->
+ 
+  <!--=======================================================
+      GALERÍA DE IMÁGENES
+  =======================================================-->
+  <!-- Área blanca de galería -->
+  <div class="proyecto-galeria">
+
+    <!-- Imagen panorámica ancha (marcado con id zoomable) -->
+    <img src="assets/galería-golfito/golfito-lamina.webp" class="galeria-img-ancha zoomable" alt="Vista panorámica bakugan">
+
+    
+  </div><!-- fin proyecto-galeria -->
+
+  <!--=======================================================
+      CARRUSEL MANUAL
+  =======================================================-->
+<div class="carrusel-manual-contenedor">
+
+  <!-- Ventana visible: corta las fotos que salen del área -->
+  <div class="carrusel-ventana" id="ventana-aritos">
+
+    <!-- Track: la fila de fotos que se desplaza en píxeles -->
+    <div class="carrusel-track" id="track-aritos">
+      <img src="assets/galería-golfito/golfito-3D2.webp" class="carrusel-foto zoomable" alt="Golfito detalle 2">
+      <img src="assets/galería-golfito/golfito1A_.webp" class="carrusel-foto zoomable" alt="Golfito detalle 1">
+      <img src="assets/galería-golfito/golfito-3D1.webp" class="carrusel-foto zoomable" alt="Golfito detalle 1">
+      <img src="assets/galería-golfito/golfito2A.webp" class="carrusel-foto zoomable" alt="Golfito detalle 1">
+    </div>
+
+  </div>
+
+  <!-- Flechas interactivas -->
+   <!-- Flecha izquierda -->
+  <button class="carrusel-btn izquierda"
+          onclick="deslizarCarrusel('track-aritos', 'ventana-aritos', -1)">
+    <img src="assets/flechas/flecha-izquierda.png" alt="Anterior">
+  </button>
+  <!-- Flecha derecha -->
+  <button class="carrusel-btn derecha"
+          onclick="deslizarCarrusel('track-aritos', 'ventana-aritos', 1)">
+    <img src="assets/flechas/flecha-derecha.png" alt="Siguiente">
+  </button>
+
+</div>
+
+<!-- Video del juego que se reproduce automáticamente en loop (autoplay, loop), sin sonido (muted), dentro del espacio de la galeria (playsinline) -->
+<video 
+  class="galeria-video" 
+  autoplay      
+  loop          
+  muted         
+  playsinline   
+>
+  <!-- Link al archivo del video -->
+  <source src="assets/galería-golfito/Golfito_demostración.mp4" type="video/mp4">
+</video><!--fin video-->
+
+  <!--=======================================================
+      FRANJA INFERIOR ANIMADA
+  =======================================================-->
+   <!---Aspecto visual texto-->
+  <div class="franja-texto-inferior">
+    <!---Contiene las dos copias de texto juntas para una animación continua---> 
+    <div class="ticker-track">
+        <!--Dos copias de texto-->
+      <span class="text-inf">GolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasurero</span>
+      <span class="text-inf">GolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasureroGolfitoBasurero</span>
+    </div><!-- fin ticker-track -->
+  </div><!-- fin franja-texto-inferior -->
+
+  <!-- Estructura del lightbox (fondo oscuro + imagen ampliada) -->
+<!-- Se reutiliza para el zoom de cualquier foto marcada con la clase "zoomable" -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+</div><!-- fin lightbox -->
+
+  <!-- Vincula la hoja de JavaScript externa -->
+  <script src="js/script.js"></script>
+ 
+</body><!--FIN BODY-->
+</html><!--FIN PÁGINA-->

@@ -1,0 +1,227 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal (español) -->
+<html lang="es">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsiva, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Javiera Sáez</title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vincula la hoja de estilos CSS externa-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+  <!--========================================================
+    FRANJA SUPERIOR ANIMADA
+    ========================================================-->
+  <!--Aspecto visual de "caja" de texto-->
+  <div class="franja-texto">
+    <!--Movimiento de texto-->
+    <div class="ticker-track">
+    <!-- El texto se duplica para que la animación sea continua -->
+    <span class="text-sup">DiseñoPortafolioDiseñoPortafolioDiseñoPortafolioDiseñoPortafolio</span>
+    <span class="text-sup">DiseñoPortafolioDiseñoPortafolioDiseñoPortafolioDiseñoPortafolio</span>
+  </div><!-- fin ticker-track -->
+</div><!-- fin franja-texto -->
+ 
+  <!--========================================================
+    SECCIÓN SUPERIOR  (títulos + cabecera)
+    ========================================================-->
+  <!-- Cabecera del sitio (header) -->
+  <header class="cabecera">
+    <h1 class="title_javiera_saez">Javiera Sáez</h1>
+    <h2 class="title_portafolio">PORTAFOLIO</h2>
+  </header>
+
+  <!--=======================================================
+    SECCIÓN TRABAJOS: tarjetas con los gatitos
+    =======================================================-->
+  <!--Área blanca de menú donde van las tarjetas-->
+  <section class="seccion-trabajos">
+
+  <!-- Rect amarillo decorativo (franja derecha) -->
+    <div class="rectangle_fondo_amarillo"></div>
+
+    <!-- Contenido principal -->
+    <div class="contenido_principal">
+      <!-- Título -->
+      <br><br> 
+      <h1 class="title_trabajos">PROYECTOS</h1>
+      
+      <!-- Las tres tarjetas / botones de navegación -->
+      <div class="contenedor-botones">
+ 
+        <!-- 1. Diseño Plan Común -->
+        <a href="plan-comun.html" class="tarjeta-categoria", target="_self">
+          <div class="tarjeta-visual">
+            <div class="rectangle_rojo"></div>
+            <!--imágen de gatito con dos rutas (normal y hover) marcadas como "data-"-->
+            <!--interacción para JavaSript marcada con class .img-hover-->
+            <img src="assets/gatito1.webp"
+             data-normal="assets/gatito1.webp" 
+             data-hover="assets/gatito1-hover.webp"
+             class="img_gatito1 img-hover" 
+             alt="Diseño Plan Común">
+          </div><!--fin tarjeta-visual-->
+          <span class="text_diseño-plan-comun">Diseño Plan Común</span>
+        </a>
+ 
+        <!-- 2. Proyectos Personales -->
+        <a href="proyectos-personales.html" class="tarjeta-categoria", target="_self">
+          <div class="tarjeta-visual">
+            <div class="rectangle_amarillo"></div>
+            <!--imágen de gatito con dos rutas (normal y hover) marcadas como "data-"-->
+            <!--interacción para JavaSript marcada con class .img-hover-->
+             <img src="assets/gatito2.webp" 
+             data-normal="assets/gatito2.webp" 
+             data-hover="assets/gatito2-hover.webp"
+             class="img_gatito2 img-hover" 
+             alt="Proyectos Personales"> 
+          </div>
+          <span class="text-proyectos-personales">Proyectos Personales</span>
+        </a>
+ 
+        <!-- 3. Diseño Digital (DID) -->
+        <a href="diseno-digital.html" class="tarjeta-categoria", target="_self">
+          <div class="tarjeta-visual">
+            <!--imágen de gatito con dos rutas (normal y hover) marcadas como "data-"-->
+            <!--interacción para JavaSript marcada con class .img-hover-->
+            <div class="rectangle_azul"></div>
+             <img src="assets/gatito3.webp" 
+             data-normal="assets/gatito3.webp" 
+             data-hover="assets/gatito3-hover.webp"
+             class="img_gatito3 img-hover" 
+             alt="Diseño Digital (DID)"> 
+          </div>
+          <span class="text-DID">Diseño Digital (DID)</span>
+        </a>
+ 
+      </div><!-- fin contenedor-botones -->
+    </div><!-- fin contenido-principal -->
+  </section>
+ 
+  <!-- Franja azul delgada de separación -->
+  <div class="rectangle_fondo_azul"></div>
+ 
+  <!-- ======================================================
+       FOOTER: contacto
+  ======================================================= -->
+  <!--Organizaciòn del footer-->
+  <footer class="footer">
+ 
+    <!-- Foto de perfil -->
+    <img src="assets/perfil.webp" class="img-perfil">
+ 
+    <!-- Línea divisora entre foto y texto -->
+    <div class="vertical-line-1"></div>
+ 
+    <!-- Bloque de nombre + texto de info + iconos (mail, insta) -->
+    <div class="bloque-contacto">
+ 
+      <p class="text_contacto_javiera-saez">Javiera Sáez</p>
+ 
+      <p class="text_contacto_info">
+        Estudiante de Diseño de Interacción Digital (DID) UDD, segundo año.<br>
+        Con experiencia en una variedad de áreas y softwares, busco ser una futura diseñadora de videojuegos.
+        <br><br>
+        Experiencia con:
+      </p>
+
+      <!-- Fila de íconos -->
+      <div class="fila-iconos">
+ 
+        <!-- Mail -->
+        <div class="icono-grupo">
+          <img src="assets/fusion.png" class="img_software" alt="fusion">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/blender.png" class="img_software" alt="blender">
+        </div>
+        
+        <div class="icono-grupo">
+          <img src="assets/unity.png" class="img_software" alt="unity">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/affinity.png" class="img_software" alt="affinity">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/illustrator.png" class="img_software" alt="adobe_illustrator">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/photoshop.png" class="img_software" alt="adobe_photoshop">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/Visual_studio.png" class="img_software" alt="visual_studio_code">
+        </div>
+
+        <div class="icono-grupo">
+          <img src="assets/capcut.png" class="img_software" alt="capcut">
+        </div>
+
+      </div><!-- fin fila-iconos -->
+
+      <p class="text_contacto_info">
+        Contactos:
+      </p>
+
+      <!-- Fila de íconos -->
+      <div class="fila-iconos">
+ 
+        <!-- Mail -->
+        <div class="icono-grupo">
+          <img src="assets/mail.png" class="img_mail" alt="mail">
+          <a class= "text_mail_udd" href="mailto:ja.saez.design@gmail.com">ja.saez.design@gmail.com</a>
+        </div>
+ 
+        <!-- Línea divisora vertical entre mail e instagram -->
+        <div class="vertical-line-2"></div>
+ 
+        <!-- Instagram -->
+        <div class="icono-grupo">
+          <img src="assets/insta.png" class="img_instagram" alt="instagram">
+          <span class="text_xxx">javis_does_design</span>
+        </div>
+ 
+      </div><!-- fin fila-iconos -->
+ 
+    </div><!-- fin bloque-contacto -->
+ 
+  </footer>
+  <!--========================================================
+    FRANJA INFERIOR ANIMADA
+    ========================================================-->
+  <div class="franja-texto-inferior">
+    <div class="ticker-track">
+    <!-- El texto se duplica para que la animación sea continua -->
+    <span class="text-inf">DiseñoPortafolioDiseñoPortafolioDiseñoPortafolioDiseñoPortafolio</span>
+    <span class="text-inf">DiseñoPortafolioDiseñoPortafolioDiseñoPortafolioDiseñoPortafolio</span>
+  </div><!---Fin ticker-track-->
+</div><!---Fin franja-texto-inferior-->
+
+<!-- Vincula el script externo (siempre al final del <body>) -->
+  <script src="js/script.js"></script>
+   
+</body><!---FIN BODY-->
+</html><!---FIN PÁGINA-->
+
+
+    
+
