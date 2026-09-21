@@ -1,0 +1,178 @@
+<!--Código creado con la ayuda de Claude AI*-->
+<!-- Define al navegador que estamos utilizando la versión estándar de HTML5 -->
+<!DOCTYPE html>
+<!-- Abre el documento HTML y define el idioma principal (español) -->
+<html lang="es">
+<!--Contiene configuraciones, enlaces a CSS/JS y metadatos.-->
+<head>
+    <!-- Define la codificación de caracteres universal UTF-8 (admite acentos, ñ, emojis) -->
+    <meta charset="UTF-8">
+    <!-- Configura la visualización responsiva, adaptando el ancho del sitio al tamaño de la pantalla del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la pestaña del navegador -->
+    <title>Mi Portafolio :) Lapin quiere ser libre </title>
+    <!-- Establecer favicon -->
+    <link rel="icon" type="image/webp" href="assets/perfil.webp">
+    <!-- Conexión previa a los servidores de Google Fonts para acelerar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Carga de la tipografía Outfit desde Google Fonts en distintos grosores de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vincula la hoja de estilos CSS externa-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<!--Contiene todo el contenido visible de la página.-->
+<body>
+
+ <!--=======================================================
+      FRANJA SUPERIOR ANIMADA
+  =======================================================-->
+  <!---Aspecto visual texto-->
+  <div class="franja-texto"> 
+    <!---Movimiento de texto--->   
+    <div class="ticker-track">  
+    <!---Dos copias de texto--> 
+      <span class="text-sup">LapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibre</span>
+      <span class="text-sup">LapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibre</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto -->
+
+  <!---Selecciónar bloque de color correcto-->
+  <div class="bloque-proyecto-azul">
+ 
+    <!-- Foto principal + texto descriptivo -->
+    <div class="proyecto-header">  
+ 
+      <!-- IMAGEN PRINCIPAL CON EFECTO PARALLAX -->
+       <!-- Contenedor del efecto parallax (id único para que JavaScript lo identifique) -->
+      <div id="parallax-scene" class="proyecto-foto-principal">
+        <!--layer de imagen dentro del parallax, velocidad 3, apunta al archivo de la imagen dentro de assets-->
+       <div class="layer" data-speed="3" style="background-image: url('assets/Lapin.webp');">
+       </div><!--fin de layer-->
+      </div><!--fin de proyecto-foto-principal-->
+ 
+    <!--=====================================================
+         BLOQUE DE TEXTO: íconos + título + descripción
+    =====================================================-->
+      <!--Bloque de texto (derecha)-->
+      <div class="proyecto-texto">
+
+    <!-- Fila de íconos: volver al submenú + ir al menú principal -->
+    <div class="proyecto-iconos">
+       <!-- Enlace que lleva de vuelta al submenú de Proyectos Personales -->
+      <a href="diseno-digital.html" target="_self">
+        <!--img icono de undo-->
+        <img src="assets/undo.png" class="undo2" alt="Volver">
+      </a>
+      <!-- Enlace que lleva de vuelta al menú principal -->
+      <a href="index.html" target="_self">
+        <!--img icono de home-->
+        <img src="assets/home.png" class="home" alt="Inicio">
+      </a>
+    </div><!-- fin proyecto-iconos -->
+
+         <!-- Título principal del proyecto -->
+        <h1 class="proyecto-titulo">Corto Animado: Lapin quiere ser libre</h1>
+         <!-- Subtítulo del proyecto -->
+        <h3 class="proyecto-subtitulo">EXAMEN: Narrativa</h3>
+        <h4 class="proyecto-sub-subtitulo">Profesor: Cristián Iriani</h4>   
+ 
+        <!-- Descripción del proyecto -->
+        <p class="proyecto-descripcion">
+         Lapin, un humilde conejo blanco de aspecto algo torpe, trabaja como oficinista para una compañía que lo explota con cargas laborales excesivas; obligándolo a cancelar todos sus planes. Es por esto que, deseando ser libre para cumplir todas sus metas, sueña despierto todo el día; pero es esta actitud despistada causa que lo despidan. Ahora, libre de su trabajo, en vez de deprimirse va y se dedica a cumplir todos sus sueños.<br><br>
+          Equipo: Ignacio Aguilerra, Bastian Fajardo & Javiera Sáez.<br><br>
+          Aporte personal: character design, guión, storyboard y primera mitad de animación + última escena.
+        </p>
+      </div><!-- fin proyecto-texto -->
+
+    </div><!-- fin proyecto-header -->
+  </div><!-- fin bloque-proyecto -->
+
+  <!-----------------------------------------------------------
+      CARRUSEL MANUAL
+  ------------------------------------------------------------>
+<!-- Contenedor del carrusel-->
+<div class="carrusel-manual-contenedor">
+
+  <!-- Ventana visible: corta las fotos que salen del área -->
+  <div class="carrusel-ventana" id="ventana-revista">
+
+    <!-- Track: la fila de fotos que se desplaza en píxeles (marcado con id zoomable) -->
+    <div class="carrusel-track" id="track-revista">
+      <img src="assets/galería_Lapin/LapinA.webp" class="carrusel-foto zoomable" alt="Character 1">
+      <img src="assets/galería_Lapin/LapinB.webp" class="carrusel-foto zoomable" alt="Character 2">
+      <img src="assets/galería_Lapin/LapinC.webp" class="carrusel-foto zoomable" alt="Character 3">
+      <img src="assets/galería_Lapin/LapinD.webp" class="carrusel-foto zoomable" alt="Character 4">
+      <img src="assets/galería_Lapin/LapinE.webp" class="carrusel-foto zoomable" alt="Character 5">
+      <img src="assets/galería_Lapin/LapinF.webp" class="carrusel-foto zoomable" alt="Character 6">
+    </div><!-- Fin carrusel-track -->
+
+  </div><!-- Fin carrusel-ventana-->
+
+  <!-- Flechas interactivas-->
+   <!-- Flecha izquierda -->
+  <button class="carrusel-btn izquierda"
+          onclick="deslizarCarrusel('track-revista', 'ventana-revista', -1)">
+    <img src="assets/flechas/flecha-izquierda.png" alt="Anterior">
+  </button>
+  <!-- Flecha derecha -->
+  <button class="carrusel-btn derecha"
+          onclick="deslizarCarrusel('track-revista', 'ventana-revista', 1)">
+    <img src="assets/flechas/flecha-derecha.png" alt="Siguiente">
+  </button>
+
+</div><!-- Fin carrusel-manual-contenedor -->
+
+  <!--=======================================================
+      GALERÍA DE IMÁGENES
+  =======================================================-->
+  <!-- Área blanca de galería -->
+  <div class="proyecto-galeria">
+ 
+    <!-- Grilla simple de fotos (marcado con id zoomable) -->
+     <div class="galeria-grid-mosaico2">
+      <img src="assets/galería_Lapin/Lapin1.webp" class="galeria-img zoomable" alt="Storyboard 1">
+      <img src="assets/galería_Lapin/Lapin2.webp" class="galeria-img zoomable" alt="Storyboard 2">
+    </div>
+    <div class="galeria-grid-mosaico2">
+      <img src="assets/galería_Lapin/Lapin3.webp" class="galeria-img zoomable" alt="Storyboard 3">
+      <img src="assets/galería_Lapin/Lapin4.webp" class="galeria-img zoomable" alt="Storyboard 4">
+    </div>
+    <div class="galeria-grid-mosaico2">
+      <img src="assets/galería_Lapin/Lapin5.webp" class="galeria-img zoomable" alt="Storyboard 5">
+      <img src="assets/galería_Lapin/Lapin6.webp" class="galeria-img zoomable" alt="Storyboard 6">
+    </div>
+    <div class="galeria-grid-mosaico2">
+      <img src="assets/galería_Lapin/Lapin7.webp" class="galeria-img zoomable" alt="Storyboard 7">
+      <img src="assets/galería_Lapin/Lapin8.webp" class="galeria-img zoomable" alt="Storyboard 8">
+    </div>
+    <div class="galeria-grid-mosaico2">
+      <img src="assets/galería_Lapin/Lapin9.webp" class="galeria-img zoomable" alt="Storyboard 9">
+    </div><!-- fin galeria-grid -->
+ 
+  </div><!-- fin proyecto-galeria -->
+
+  <!--=======================================================
+      FRANJA INFERIOR ANIMADA
+  =======================================================-->
+   <!---Aspecto visual texto-->
+  <div class="franja-texto-inferior">
+    <!---Movimiento de texto---> 
+    <div class="ticker-track">
+        <!--Dos copias de texto-->
+      <span class="text-inf">LapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibre</span>
+      <span class="text-inf">LapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibreLapinQuiereSerLibre</span>
+    </div><!-- Fin ticker-track -->
+  </div><!-- Fin franja-texto-inferior -->
+
+  <!-- Estructura del lightbox (fondo oscuro + imagen ampliada) -->
+<!-- Se reutiliza para el zoom de cualquier foto marcada con la clase "zoomable" -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+</div><!-- fin lightbox -->
+
+  <!-- Vincula la hoja de JavaScript externa -->
+  <script src="js/script.js"></script>
+ 
+</body><!--FIN BODY-->
+</html><!--FIN PÁGINA-->
