@@ -688,6 +688,19 @@ PÁGINAS DE PROYECTOS
       margin-top: 8px;                     /*margen, arriba*/
       text-align: justify;                 /*para texto justificado*/
     }
+    .link-video {
+    color: #ffffff;           /* o el color que prefieras, ya tienes --azul en tus variables */
+    text-decoration: underline;
+    }
+
+    .link-video:visited {
+   color: #ffffff;           /* mismo color aunque ya lo hayan visitado */
+    }
+
+   .link-video:hover {
+   color: #FC5200;           /* opcional: cambia de color al pasar el mouse */
+    }
+    
  
   /*------------------------------GALERÍA DE FOTOS------------------------------*/
     /*galería de fotos simple*/
@@ -715,11 +728,6 @@ PÁGINAS DE PROYECTOS
       display: block;                                     /*layout de elementos, en bloque*/
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /*transicón de animación*/
     }
-    /*hover*/
-    .galeria-img:hover {
-      transform: translateY(-4px);                            /*elevación*/
-      filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18)); /*sombra*/
-    }
  
     /* Imagen que ocupa todo el ancho (foto panorámica) */
     .galeria-img-ancha {
@@ -730,8 +738,20 @@ PÁGINAS DE PROYECTOS
       display: block;                                   /*layout de elementos, en bloque*/
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);/*transicón de animación*/
     }
+    /* Imagen que ocupa todo el ancho (foto panorámica) */
+    /*.galeria-img-ancha-variant {
+      width: 100%;                                      /*ancho*/
+      /*max-width: 750px;                                      /*ancho*/
+      /*aspect-ratio: 3508/2481;                             /*ratio de tamaño*/
+      /*object-fit: contain;                                /*rellena espacio sin deformarse*/
+      /*border-radius: 16px;                              /*radio de orilla*/
+      /*display: block;                                   /*layout de elementos, en bloque*/
+      /*transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);/*transicón de animación*/
+    /*}*/
     /*hover*/
-    .galeria-img-ancha:hover {
+    .galeria-img:hover,
+    .galeria-img-ancha:hover,
+    .galeria-img-ancha-variant:hover {
       transform: translateY(-4px);                            /*elevación*/
       filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18)); /*sombra*/
     }
@@ -741,11 +761,15 @@ PÁGINAS DE PROYECTOS
  /*(para filas de fotos con distintos tamaños- Timbres y aretes)*/
 /*fotos de a dos*/
 .galeria-grid-mosaico2 {
-  columns: 2 260px;       /* crea 3 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
+  columns: 2 260px;       /* crea 2 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
   column-gap: 20px;       /* espacio entre columnas */
 }
 /*fotos de a tres*/
 .galeria-grid-mosaico3 {
+  columns: 3 260px;       /* crea 3 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
+  column-gap: 20px;       /* espacio entre columnas */
+}
+.galeria-grid-mosaico3-variant {
   columns: 3 260px;       /* crea 3 columnas de mínimo 260px cada una; si no cabe, reduce automáticamente la cantidad de columnas en pantallas chicas */
   column-gap: 20px;       /* espacio entre columnas */
 }
@@ -758,6 +782,18 @@ PÁGINAS DE PROYECTOS
   object-fit: cover;
   display: block;                              /* layout de elementos, en bloque */
   border-radius: 28px;                         /* radio de esquinas */
+  margin-bottom: 20px;                         /* espacio vertical entre fotos de la misma columna */
+  break-inside: avoid;                         /* evita que una foto se corte a la mitad entre dos columnas */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* transición suave para el hover */
+}
+/*look de las imagenes*/
+.galeria-grid-mosaico3-variant img {
+  width: 100%;                                 /* la foto ocupa todo el ancho de su columna */
+  height: auto;                                /* alto automático: respeta la proporción original de cada foto */
+  max-height: 320px;                           /* altura máxima */
+  object-fit: contain;                         /*contiene imagen sin que se corte*/
+  display: block;                              /* layout de elementos, en bloque */
+  border-radius: 15px;                         /* radio de esquinas */
   margin-bottom: 20px;                         /* espacio vertical entre fotos de la misma columna */
   break-inside: avoid;                         /* evita que una foto se corte a la mitad entre dos columnas */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* transición suave para el hover */
@@ -836,6 +872,8 @@ PÁGINAS DE PROYECTOS
   overflow: hidden;     /*esconder overflow*/
   border-radius: 20px;  /*radio de orilla*/
   width: 100%;          /*ancho*/
+  padding: 12px 0;       /* espacio extra arriba y abajo para el hover */
+  margin: -12px 0;       /* compensa el padding para que no cambie el layout general */
 }
 
 /* La fila de fotos - necesita width:100% para que las fotos se calculen bien */
@@ -851,13 +889,25 @@ PÁGINAS DE PROYECTOS
   width: 50%;               /*ancho*/
   aspect-ratio: 4 / 3;      /* proporción horizontal para fotos */
   object-fit: cover;        /*rellena espacio sin deformarse*/
+  border-radius: 23px;      /*radio de orilla*/
+  padding: 0 8px;           /*espacio interno entre elemento y su contenido*/
+  box-sizing: border-box;   /*radio de orilla*/
+  transition: all 0.3s ease;/* transición para efecto */
+}
+/* Cada foto: ocupa exactamente 1/2 del contenedor */
+.carrusel-foto-variant {
+  flex: 0 0 50%;            /* ocupa 1/2*/
+  width: 50%;               /*ancho*/
+  aspect-ratio: 4 / 3;      /* proporción horizontal para fotos */
+  object-fit: contain;        /*rellena espacio sin deformarse*/
   border-radius: 16px;      /*radio de orilla*/
   padding: 0 8px;           /*espacio interno entre elemento y su contenido*/
   box-sizing: border-box;   /*radio de orilla*/
   transition: all 0.3s ease;/* transición para efecto */
 }
 /*hover*/
-.carrusel-foto:hover {
+.carrusel-foto:hover,
+.carrusel-foto-variant:hover {
   transform: translateY(-4px);                            /*elevación*/
   filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.18));/*sombra*/
 }

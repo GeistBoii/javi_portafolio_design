@@ -186,6 +186,6 @@ if (parallaxScene && lightbox && lightboxImg) {
     lightboxImg.src = url;              // pone esa imagen dentro del lightbox
     lightbox.style.display = 'flex';    // muestra el lightbox
   });
-
+  
 }
 //FIN JAVASCRIPT
